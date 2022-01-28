@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: "prod"
+  data:
+    mongodb:
+      uri: mongodb+srv://mongo-admin:tapasbca@cluster0.h2edf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      database: productdb
+
+springbootwebfluxjjwt:
+  jjwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
+    expiration: 28800
+
+azure:
+  subscriptionId: 611f6415-4438-4fc6-b289-e4fe3a7c541f
