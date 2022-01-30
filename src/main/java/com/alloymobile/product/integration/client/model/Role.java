@@ -1,4 +1,4 @@
-package com.alloymobile.product.servicecaller.client.model;
+package com.alloymobile.product.integration.client.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

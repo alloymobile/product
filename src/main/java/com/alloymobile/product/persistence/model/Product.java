@@ -1,4 +1,4 @@
-package com.alloymobile.product.model;
+package com.alloymobile.product.persistence.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -25,4 +25,5 @@ public class Product implements Serializable {
     private String clientId;
     private ZonedDateTime expiryDate;
     private Address address;
+    private Location location;
 }

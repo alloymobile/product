@@ -1,7 +1,5 @@
-package com.alloymobile.product.servicecaller.client.model;
+package com.alloymobile.product.integration.client.model;
 
-import com.alloymobile.product.model.AddressType;
-import com.alloymobile.product.model.Location;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

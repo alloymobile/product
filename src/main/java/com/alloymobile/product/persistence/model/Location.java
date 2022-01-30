@@ -1,4 +1,4 @@
-package com.alloymobile.product.model;
+package com.alloymobile.product.persistence.model;
 
 import lombok.Data;
 

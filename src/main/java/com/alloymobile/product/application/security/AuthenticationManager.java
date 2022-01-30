@@ -1,6 +1,5 @@
-package com.alloymobile.product.security;
+package com.alloymobile.product.application.security;
 
-import com.alloymobile.product.config.ProductProperties;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
@@ -20,19 +19,14 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
 
     private final TokenProvider tokenProvider;
 
-    protected ProductProperties productProperties;
-
-    public AuthenticationManager(TokenProvider tokenProvider, ProductProperties productProperties) {
+    public AuthenticationManager(TokenProvider tokenProvider) {
         this.tokenProvider = tokenProvider;
-        this.productProperties = productProperties;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public Mono<Authentication> authenticate(Authentication authentication) {
         String authToken = authentication.getCredentials().toString();
-        //Get the token and use for all the other service calls
-        this.productProperties.setToken(authToken);
         String username;
         try {
             username = tokenProvider.getUsernameFromToken(authToken);

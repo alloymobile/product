@@ -1,4 +1,4 @@
-package com.alloymobile.product.model;
+package com.alloymobile.product.persistence.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,11 +11,9 @@ import org.springframework.data.annotation.Id;
 public class Address {
     @Id
     private String id;
-    private AddressType type;
     private String address;
     private String city;
     private String state;
     private String postalCode;
     private String country;
-    private Location location;
 }

@@ -1,4 +1,4 @@
-package com.alloymobile.product.security;
+package com.alloymobile.product.application.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

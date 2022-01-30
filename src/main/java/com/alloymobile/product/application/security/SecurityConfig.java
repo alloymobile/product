@@ -1,4 +1,4 @@
-package com.alloymobile.product.security;
+package com.alloymobile.product.application.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
