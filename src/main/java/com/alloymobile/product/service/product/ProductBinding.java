@@ -1,4 +1,4 @@
-package com.alloymobile.product.service;
+package com.alloymobile.product.service.product;
 
 
 import com.alloymobile.product.persistence.model.QProduct;

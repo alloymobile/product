@@ -1,4 +1,4 @@
-package com.alloymobile.product.service;
+package com.alloymobile.product.service.product;
 
 import com.alloymobile.product.integration.client.model.Address;
 import com.alloymobile.product.integration.client.model.AddressType;
@@ -12,7 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.ZoneOffset;
@@ -53,7 +52,7 @@ public class ProductService {
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         return this.productRepository.count()
                 .flatMap(productCount -> {
-                    return this.productRepository.getProductByLocation(location,distance,zonedDateTime,pageable.getSort())
+                    return this.productRepository.findAllSaleProduct(location,distance,zonedDateTime,pageable.getSort())
                             .buffer(pageable.getPageSize(),(pageable.getPageNumber() + 1))
                             .elementAt(pageable.getPageNumber(), new ArrayList<>())
                             .map(products -> new PageImpl<>(products, pageable, productCount));
@@ -68,7 +67,7 @@ public class ProductService {
         product.setId(new ObjectId().toString());
         ZonedDateTime now = ZonedDateTime.now(ZoneOffset.UTC);
         product.setExpiryDate(now);
-        return this.clientServiceCaller.getClientById(product.getClientId(),token).flatMap(c->{
+        return this.clientServiceCaller.getClientById(product.getClient(),token).flatMap(c->{
            Optional<Address> address = c.getAddresses().stream().filter(a->a.getType().equals(AddressType.STORE)).findFirst();
            if(address.isPresent()){
                product.setAddress(this.clientServiceCaller.clientMapper.toAddress(address.get()));

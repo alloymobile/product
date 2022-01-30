@@ -15,6 +15,6 @@ import java.time.ZonedDateTime;
 public interface ProductRepository extends ReactiveMongoRepository<Product, String>, ReactiveQuerydslPredicateExecutor<Product> {
 
     @Query("{$and:[{'location' : {$near : { $geometry : ?0 , $maxDistance: ?1 } } },{'expiryDate' : {$gte : ?2 } }]}")
-    Flux<Product> getProductByLocation(Location location, Integer distance, ZonedDateTime zonedDateTime, Sort sort);
+    Flux<Product> findAllSaleProduct(Location location, Integer distance, ZonedDateTime zonedDateTime, Sort sort);
 
 }

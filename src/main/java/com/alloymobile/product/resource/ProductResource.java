@@ -3,8 +3,8 @@ package com.alloymobile.product.resource;
 import com.alloymobile.product.application.config.Constant;
 import com.alloymobile.product.application.utils.PageData;
 import com.alloymobile.product.persistence.model.Product;
-import com.alloymobile.product.service.ProductBinding;
-import com.alloymobile.product.service.ProductService;
+import com.alloymobile.product.service.product.ProductBinding;
+import com.alloymobile.product.service.product.ProductService;
 import com.querydsl.core.types.Predicate;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.data.domain.Page;
@@ -12,7 +12,6 @@ import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Objects;
